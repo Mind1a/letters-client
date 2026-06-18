@@ -51,9 +51,11 @@ const Footer = () => {
             <Image alt="Logo" src="/images/logo/Logo.svg" width={95.6} height={74.32} />
           </Link>
           <div className="flex gap-5">
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ilia State University" className="flex items-center justify-center"><Iliauni /></a>
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Ilia State University" className="flex items-center justify-center">
+              <Image alt="Iliauni Logo" src="/images/footer/IliauniLogo.svg" width={50} height={48} />
+            </a>
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="UniLab">
-              <Unilab />
+              <Image alt="UniLab Logo" src="/images/footer/UnilabLogo.svg" width={36} height={48} />
             </a>
           </div>
         </div>
