@@ -36,7 +36,7 @@ const AboutUs = () => {
         </div>
 
         {/* bottom line */}
-        <div className="flex justify-start items-center">
+        <div aria-hidden="true" className="flex justify-start items-center">
           <div className="w-[50%] md:w-[40%] lg:w-[60%]  flex items-center">
             <div className="flex-1 h-px bg-black" />
             <div className="w-4 h-4 rounded-full border-2 border-black shrink-0" />
@@ -48,20 +48,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-
-// ინგლისურად h2 არის 32px ქართულად კი 20px. როგორ ვქნა? ან შეცდომა ხომ არ არის დიზაინში? ენების ცვლილებით შრიფტი უნდა იცვლებოდეს?
-/* 
-<h2
-  className={`text-center text-[#2BCAFF] mb-8 ${
-    locale === "ka"
-      ? "text-[20px] lg:text-[32px]"
-      : "text-[32px]"
-  }`}
->
-  {t("aboutUs")}
-</h2>
-*/
-
-/* შრიფტის დამატების მერე w-[60%] შეიძლება უკეთესი იყოს 70*/
-
-/* ვიკითხო შავვერსიაზე ამას მივცე ბექგრაუნდ ქოლორი თუ ბადის? */
