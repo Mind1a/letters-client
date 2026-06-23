@@ -4,7 +4,7 @@ import Statistic from "./Statistic";
 const Landing = () => {
   return (
     <div>
-      {/* <AboutUs /> */}
+      <AboutUs />
       <Statistic />
     </div>
   );

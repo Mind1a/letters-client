@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { QueryProvider } from "@/features/query/QueryProvider";
-import localFont from "next/font/local"
+import localFont from "next/font/local";
 
 import { Toaster } from "react-hot-toast";
-
+import Footer from "@/common/components/primitives/Footer";
 
 const helvetica = localFont({
   variable: "--font-helvetica",
@@ -13,17 +13,15 @@ const helvetica = localFont({
     {
       path: "../public/font/Helvetica.ttf",
       weight: "400",
-      style: "normal"
+      style: "normal",
     },
     {
       path: "../public/font/Helvetica-Bold.ttf",
       weight: "700",
-      style: "normal"
+      style: "normal",
     },
-  ]
-})
-
-
+  ],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -40,6 +38,7 @@ export default function RootLayout({
       <body>
         <QueryProvider>
           {children}
+          <Footer />
           <Toaster
             position="bottom-right"
             toastOptions={{
