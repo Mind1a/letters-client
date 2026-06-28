@@ -19,14 +19,12 @@ const Statistic = () => {
               <div
                 className={`relative w-43 h-43 border-4 rounded-full flex justify-center items-center  ${data.glowClass}`}
               >
-                {data.ellipse && (
-                  <data.ellipse className="absolute w-42 h-43 left-0 top-0 -translate-x-[1.5px] -translate-y-1 rounded-full inset-0 " />
-                )}
+                <data.ellipse className="absolute w-42 h-43 left-0 top-0 -translate-x-[1.5px] -translate-y-1 rounded-full inset-0 " />
 
                 <data.icon
                   className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-foreground`}
                 />
-                {data.item && <data.item className={data.itemClass} />}
+                <data.item className={data.itemClass} />
               </div>
               <div className="mt-6 space-y-2">
                 <p className="text-[24px]">{data.title}</p>
