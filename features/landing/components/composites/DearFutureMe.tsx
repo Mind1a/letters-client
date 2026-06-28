@@ -5,7 +5,13 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ReceiveDropdown from "../primitives/ReceiveDropdown";
-import { dearFutureMeSchema } from "@/features/lib/dearFutureMe.schema";
+import {
+  dearFutureMeSchema,
+  type DearFutureMeFormValues,
+} from "@/features/lib/dearFutureMe.schema";
+import { useState } from "react";
+import SemesterDropdown from "../primitives/SemesterDropdown";
+import Calendar from "@/public/images/calendar.png";
 
 const notoSansGeorgian = Noto_Sans_Georgian({
   subsets: ["latin"],
@@ -17,9 +23,20 @@ const DearFutureMe = () => {
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     formState: { errors },
-  } = useForm({
+  } = useForm<DearFutureMeFormValues>({
     resolver: zodResolver(dearFutureMeSchema),
+    defaultValues: {
+      receiveAt: "",
+      semester: "",
+      firstName: "",
+      lastName: "",
+      title: "",
+      message: "",
+      terms: false,
+    },
   });
 
   return (
@@ -31,8 +48,43 @@ const DearFutureMe = () => {
         <h2 className="text-[#2BCAFF] mx-auto w-[225px] text-center text-[24px] font-semibold leading-[130%] md:w-full xl:text-[32px]">
           Dear Future Me...
         </h2>
-        <ReceiveDropdown error={errors.receiveAt?.message} />
-        <div className="mt-[20px]  flex flex-col gap-[20px] xl:flex-row xl:gap-[24px]">
+        <h2>Dear Future Me...</h2>
+        <div className="mt-[24px] flex flex-col gap-[20px] xl:flex-row xl:gap-[24px]">
+          <div
+            className={
+              watch("receiveAt") === "graduation" ? "xl:w-[466px]" : "xl:w-full"
+            }
+          >
+            <ReceiveDropdown
+              value={watch("receiveAt")}
+              error={errors.receiveAt?.message}
+              onChange={(value) => {
+                setValue("receiveAt", value, {
+                  shouldValidate: true,
+                });
+
+                setValue("semester", "", {
+                  shouldValidate: false,
+                });
+              }}
+            />
+          </div>
+
+          {watch("receiveAt") === "graduation" && (
+            <div className="xl:w-[466px]">
+              <SemesterDropdown
+                value={watch("semester") || ""}
+                error={errors.semester?.message}
+                onChange={(value) => {
+                  setValue("semester", value, {
+                    shouldValidate: true,
+                  });
+                }}
+              />
+            </div>
+          )}
+        </div>
+        <div className="mt-[20px] flex flex-col gap-[20px] xl:flex-row xl:gap-[24px]">
           <div className="flex flex-col gap-[2px] xl:w-[466px]">
             <label
               htmlFor="firstName"
