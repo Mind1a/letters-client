@@ -2,16 +2,17 @@ import { z } from "zod";
 
 export const dearFutureMeSchema = z
   .object({
-    receiveAt: z.enum(["", "graduation", "customDate"]),
+    receiveAt: z.string().min(1, "error"),
     semester: z.string().optional(),
+    customDate: z.string().optional(),
 
-    firstName: z.string().min(1, "First name is required"),
-    lastName: z.string().min(1, "Last name is required"),
-    title: z.string().min(1, "Title is required"),
-    message: z.string().min(1, "Message is required"),
+    firstName: z.string().min(1, "error"),
+    lastName: z.string().min(1, "error"),
+    title: z.string().min(1, "error"),
+    message: z.string().min(1, "error"),
 
     terms: z.boolean().refine((value) => value === true, {
-      message: "You must agree to the terms and conditions",
+      message: "error",
     }),
   })
   .superRefine((data, ctx) => {
@@ -19,7 +20,15 @@ export const dearFutureMeSchema = z
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         path: ["semester"],
-        message: "Select your current semester",
+        message: "error",
+      });
+    }
+
+    if (data.receiveAt === "customDate" && !data.customDate) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["customDate"],
+        message: "error",
       });
     }
   });

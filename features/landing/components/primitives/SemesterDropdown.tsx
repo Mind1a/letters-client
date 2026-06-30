@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import Vector from "@/public/images/Vector.svg";
+
 type SemesterDropdownProps = {
   value: string;
   error?: string;
@@ -45,13 +47,24 @@ const SemesterDropdown = ({
             error ? "text-[#FF3B30]" : "text-[#B3B3B3]"
           }`}
         >
-          {value || "აირჩიე შენი მიმდინარე სემესტრი"}
+          {value || "Select your current semester"}
         </span>
 
-        <Vector
-          className={`mr-[10px] ${error ? "text-[#FF3B30]" : "text-[#B3B3B3]"}`}
-        />
+        <span className="mr-[10px] flex h-[24px] w-[24px] shrink-0 items-center justify-center xl:mr-[16px]">
+          <Vector className="block xl:hidden" />
+
+          <span className="relative hidden h-[24px] w-[24px] overflow-hidden xl:block">
+            <Image
+              src="/images/Iconsdesktop.png"
+              alt="Dropdown"
+              width={524}
+              height={524}
+              className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
+            />
+          </span>
+        </span>
       </button>
+
       {error && (
         <p className="mt-[4px] text-[10px] leading-[14px] text-[#FF3B30]">
           {error}

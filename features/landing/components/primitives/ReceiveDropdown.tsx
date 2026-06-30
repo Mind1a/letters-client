@@ -20,10 +20,10 @@ const ReceiveDropdown = ({ value, error, onChange }: ReceiveDropdownProps) => {
 
   const buttonText =
     value === "graduation"
-      ? "მიიღე წერილი გამოსაშვებზე"
+      ? "Receive your letter on graduation"
       : isCustomDate
-      ? "მონიშნე კალენდარში"
-      : "აირჩიე წერილის მიღების თარიღი";
+      ? "Mark on calendar"
+      : "Select when you want to receive your letter";
 
   const handleButtonClick = () => {
     if (isCustomDate) {
@@ -45,28 +45,47 @@ const ReceiveDropdown = ({ value, error, onChange }: ReceiveDropdownProps) => {
       <button
         type="button"
         onClick={handleButtonClick}
-        className={`flex h-[52px] w-full cursor-pointer items-center justify-between rounded-[8px] border bg-[#111817] xl:h-[59px] ${
+        className={`flex h-13 w-full cursor-pointer items-center justify-between rounded-[8px] border bg-[#111817] xl:h-[59px] ${
           error ? "border-[#FF3B30]" : "border-[#343434]"
         }`}
       >
         <span
           className={`min-w-0 flex-1 truncate pl-[10px] text-left text-[12px] font-normal leading-[20px] xl:pl-[16px] xl:text-[18px] ${
-            error ? "text-[#FF3B30]" : "text-[#B3B3B3]"
+            error && value === "" ? "text-[#FF3B30]" : "text-[#B3B3B3]"
           }`}
         >
           {buttonText}
         </span>
 
-        <span className="mr-[10px] flex h-[24px] w-[24px] items-center justify-center xl:mr-[16px]">
+        <span className="mr-[10px] flex h-[24px] w-[24px] shrink-0 items-center justify-center xl:mr-[16px]">
           {isCustomDate ? (
-            <Image
-              src="/images/calendar.png"
-              alt="Calendar"
-              width={24}
-              height={24}
-            />
+            <>
+              <Vector className="block xl:hidden" />
+
+              <span className="relative hidden h-[24px] w-[24px] xl:block">
+                <Image
+                  src="/images/calendar.png"
+                  alt="Calendar"
+                  width={524}
+                  height={524}
+                  className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
+                />
+              </span>
+            </>
           ) : (
-            <Vector />
+            <>
+              <Vector className="block xl:hidden" />
+
+              <span className="relative hidden h-[24px] w-[24px] overflow-hidden xl:block">
+                <Image
+                  src="/images/Iconsdesktop.png"
+                  alt="Dropdown"
+                  width={524}
+                  height={524}
+                  className="absolute left-1/2 top-1/2 max-w-none -translate-x-1/2 -translate-y-1/2"
+                />
+              </span>
+            </>
           )}
         </span>
       </button>

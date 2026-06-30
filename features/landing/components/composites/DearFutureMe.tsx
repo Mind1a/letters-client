@@ -12,6 +12,7 @@ import {
 import { useState } from "react";
 import SemesterDropdown from "../primitives/SemesterDropdown";
 import Calendar from "@/public/images/calendar.png";
+import type { ReceiveOption } from "../primitives/ReceiveDropdown";
 
 const notoSansGeorgian = Noto_Sans_Georgian({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ const DearFutureMe = () => {
     defaultValues: {
       receiveAt: "",
       semester: "",
+      customDate: "",
       firstName: "",
       lastName: "",
       title: "",
@@ -38,7 +40,6 @@ const DearFutureMe = () => {
       terms: false,
     },
   });
-
   return (
     <section
       className={`${notoSansGeorgian.className}  bg-black mx-auto w-[358px] min-h-[853px] md:w-[680px] md:min-h-[876px] xl:w-[956px] xl:min-h-[1220px]`}
@@ -56,8 +57,8 @@ const DearFutureMe = () => {
             }
           >
             <ReceiveDropdown
-              value={watch("receiveAt")}
-              error={errors.receiveAt?.message}
+              value={watch("receiveAt") as ReceiveOption}
+              error={errors.receiveAt?.message || errors.customDate?.message}
               onChange={(value) => {
                 setValue("receiveAt", value, {
                   shouldValidate: true,
