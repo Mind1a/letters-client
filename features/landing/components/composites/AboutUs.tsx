@@ -9,8 +9,8 @@ const AboutUs = () => {
         {/* top line */}
         <div aria-hidden="true" className="flex justify-end items-center">
           <div className="w-[50%] md:w-[40%] lg:w-[60%]  flex items-center">
-            <div className="w-4 h-4 rounded-full border-2 border-black shrink-0" />
-            <div className="flex-1 h-px bg-black" />
+            <div className="w-4 h-4 rounded-full border-2 border-foreground shrink-0" />
+            <div className="flex-1 h-px bg-foreground" />
           </div>
         </div>
 
@@ -38,8 +38,8 @@ const AboutUs = () => {
         {/* bottom line */}
         <div aria-hidden="true" className="flex justify-start items-center">
           <div className="w-[50%] md:w-[40%] lg:w-[60%]  flex items-center">
-            <div className="flex-1 h-px bg-black" />
-            <div className="w-4 h-4 rounded-full border-2 border-black shrink-0" />
+            <div className="flex-1 h-px bg-foreground" />
+            <div className="w-4 h-4 rounded-full border-2 border-foreground shrink-0" />
           </div>
         </div>
       </div>
