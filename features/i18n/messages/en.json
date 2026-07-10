@@ -47,10 +47,10 @@
   },
 
   "navigation": {
-    "home": "Home",
-    "verbs": "Verbs",
-    "aboutUs": "About Us",
-    "contact": "Contact"
+    "about": "About Us",
+    "sendLetter": "Send a Letter",
+    "gallery": "Gallery",
+    "statistics": "Statistics"
   },
   "footer": {
     "docs": {

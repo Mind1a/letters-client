@@ -43,8 +43,6 @@ export default function RootLayout({
       <body>
         <QueryProvider>
           <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
-            <Header />
-
             {children}
             <Footer />
             <Toaster
