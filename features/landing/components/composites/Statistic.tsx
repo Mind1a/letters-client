@@ -1,11 +1,10 @@
 import { statisticsData } from "@/features/data/statisticData";
-import Image from "next/image";
 import AnimatedCounter from "../primitives/AnimatedCounter";
 
 const Statistic = () => {
   return (
     <div
-      className="bg-black text-white min-h-dvh flex justify-center items-center 
+      className="bg-background text-foreground  min-h-dvh flex justify-center items-center 
       "
     >
       <div className="text-center">
@@ -18,24 +17,14 @@ const Statistic = () => {
               key={data.id}
             >
               <div
-                className={`relative w-43 h-43 border-4 rounded-full flex justify-center items-center ${data.glowClass}`}
+                className={`relative w-43 h-43 border-4 rounded-full flex justify-center items-center  ${data.glowClass}`}
               >
-                <Image
-                  src={data.icon}
-                  width={data.width}
-                  height={data.height}
-                  alt={data.title}
-                  className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 object-fill ${data.iconClass}`}
+                <data.ellipse className="absolute w-42 h-43 left-0 top-0 -translate-x-[1.5px] -translate-y-1 rounded-full inset-0 " />
+
+                <data.icon
+                  className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-foreground`}
                 />
-                {data.item && (
-                  <Image
-                    src={data.item}
-                    width={data.itemWith}
-                    height={data.itemHeight}
-                    alt={data.title}
-                    className={data.itemClass}
-                  />
-                )}
+                <data.item className={data.itemClass} />
               </div>
               <div className="mt-6 space-y-2">
                 <p className="text-[24px]">{data.title}</p>

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { QueryProvider } from "@/features/query/QueryProvider";
 import localFont from "next/font/local";
-
 import { Toaster } from "react-hot-toast";
 import Footer from "@/common/components/primitives/Footer";
+import { ThemeProvider } from "next-themes";
+import Header from "@/common/components/primitives/Header";
 
 const helvetica = localFont({
   variable: "--font-helvetica",
@@ -34,36 +35,44 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ka" className={`${helvetica.variable}`}>
+    <html
+      lang="ka"
+      className={`${helvetica.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <QueryProvider>
-          {children}
-          <Footer />
-          <Toaster
-            position="bottom-right"
-            toastOptions={{
-              style: {
-                background: "#4E876D",
-                color: "#fff",
-              },
-              success: {
-                iconTheme: {
-                  primary: "#fff",
-                  secondary: "#4E876D",
-                },
-              },
-              error: {
+          <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
+            <Header />
+
+            {children}
+            <Footer />
+            <Toaster
+              position="bottom-right"
+              toastOptions={{
                 style: {
-                  background: "#ef4444",
+                  background: "#4E876D",
                   color: "#fff",
                 },
-                iconTheme: {
-                  primary: "#fff",
-                  secondary: "#ef4444",
+                success: {
+                  iconTheme: {
+                    primary: "#fff",
+                    secondary: "#4E876D",
+                  },
                 },
-              },
-            }}
-          />
+                error: {
+                  style: {
+                    background: "#ef4444",
+                    color: "#fff",
+                  },
+                  iconTheme: {
+                    primary: "#fff",
+                    secondary: "#ef4444",
+                  },
+                },
+              }}
+            />
+          </ThemeProvider>
         </QueryProvider>
       </body>
     </html>
