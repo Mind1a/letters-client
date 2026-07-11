@@ -1,18 +1,22 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
 import {
   Locale,
   routing,
   usePathname,
   useRouter,
-} from '@/features/i18n/routing';
-import { useParams } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+} from "@/features/i18n/routing";
+import { useParams } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 type Props = {
   defaultValue: string;
   label: string;
+};
+
+const localeLabels: Record<string, string> = {
+  en: "ENG",
+  ka: "GEO",
 };
 
 export default function LocaleSwitcherSelect({ defaultValue, label }: Props) {
@@ -34,56 +38,31 @@ export default function LocaleSwitcherSelect({ defaultValue, label }: Props) {
     };
   }, []);
 
-  const variants = {
-    [routing.locales[0]]: { x: '0%' },
-    [routing.locales[1]]: { x: '100%' },
-  };
+  const nextLocale = routing.locales.find((l) => l !== active) ?? active;
 
-  function changeLocale(nextLocale: string) {
-    if (isSwitching || nextLocale === defaultValue) return;
+  function changeLocale(locale: string) {
+    if (isSwitching) return;
 
     setIsSwitching(true);
-    setActive(nextLocale);
+    setActive(locale);
 
     timeoutRef.current = setTimeout(() => {
       router.replace(
         { pathname, query: params as Record<string, string> },
-        { locale: nextLocale as Locale }
+        { locale: locale as Locale },
       );
     }, 150);
   }
 
   return (
-    <div
+    <button
+      type="button"
       aria-label={label}
-      className="relative flex bg-[#F1F5F9] p-[4px] border-[#64748B] border-[0.5px] rounded-full w-[144px] min-h-[44px]"
+      onClick={() => changeLocale(nextLocale)}
+      disabled={isSwitching}
+      className="cursor-pointer text-[16px] uppercase tracking-wide text-foreground"
     >
-      <motion.div
-        className="top-[4px] left-[4px] absolute bg-[#FFFFFF] shadow-[0px_0px_4px_0px_#00000040] border-[#CBD5E1] border-[0.5px] rounded-full w-[calc(50%-4px)] h-[calc(100%-8px)]"
-        variants={variants}
-        initial={false}
-        animate={active}
-        transition={{
-          ease: 'easeInOut',
-          duration: 0.15,
-        }}
-      />
-
-      {routing.locales.map((locale) => (
-        <button
-          key={locale}
-          type="button"
-          onClick={() => changeLocale(locale)}
-          disabled={isSwitching}
-          className={`z-[10] cursor-pointer w-1/2 rounded-full flex items-center justify-center ${
-            locale === active
-              ? 'text-[#1E293B] font-bold text-[14px]'
-              : 'text-[#1E293B] text-[14px]'
-          }`}
-        >
-          {locale.toUpperCase()}
-        </button>
-      ))}
-    </div>
+      {localeLabels[nextLocale] ?? nextLocale.toUpperCase()}
+    </button>
   );
 }

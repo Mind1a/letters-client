@@ -12,7 +12,7 @@ import Unilab from "/public/images/footer/UnilabLogo.svg";
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-[#0A0A0A] flex justify-center 2xl:p-[24px_144px] xl:p-[20px_144px_10px] lg:p-[20px_144px_10px] p-0">
+    <footer className="w-full bg-background flex justify-center 2xl:p-[24px_144px] xl:p-[20px_144px_10px] lg:p-[20px_144px_10px] p-0">
       <div className="lg:flex hidden flex-col max-w-480 w-full 2xl:gap-2 gap-7.5">
         <div className="flex justify-between items-center">
           <Link href="/" aria-label="Go to homepage">
@@ -23,7 +23,7 @@ const Footer = () => {
               height={74.32}
             />
           </Link>
-          <nav className="text-[#FFFFFF] text-[12px] leading-6 flex flex-col items-center gap-0.5">
+          <nav className="text-foreground text-[12px] leading-6 flex flex-col items-center gap-0.5">
             <Link href="#">კონფიდენციალურობის პოლიტიკა</Link>
             <Link href="#">წესები და პირობები</Link>
           </nav>
@@ -36,7 +36,7 @@ const Footer = () => {
                 aria-label="Linkedin"
                 className="flex items-center justify-center"
               >
-                <Linkedin />
+                <Linkedin className="text-[#333333] dark:text-[#FFFFFF]" />
               </a>
 
               <a
@@ -81,7 +81,7 @@ const Footer = () => {
             </div>
             <a
               href="mailto:infounilab@iliauni.edu.ge"
-              className="text-[10px] leading-6 text-[#FFFFFF]"
+              className="text-[10px] leading-6 text-foreground"
             >
               infounilab@iliauni.edu.ge
             </a>
@@ -108,7 +108,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        <p className="text-[#FFFFFF] text-[10px] leading-5 font-bold 2xl:pl-8 2xl:text-left text-center lg:block hidden">
+        <p className="text-foreground text-[10px] leading-5 font-bold 2xl:pl-8 2xl:text-left text-center lg:block hidden">
           Unilab ©
         </p>
       </div>
@@ -155,12 +155,12 @@ const Footer = () => {
             </div>
           </div>
 
-          <nav className="mt-12 text-[#FFFFFF] text-[12px] leading-4 flex flex-col items-center gap-3">
+          <nav className="mt-12 text-foreground text-[12px] leading-4 flex flex-col items-center gap-3">
             <Link href="#">კონფიდენციალურობის პოლიტიკა</Link>
             <Link href="#">წესები და პირობები</Link>
           </nav>
 
-          <div className="text-[#FFFFFF] flex flex-col items-center gap-2 mt-6 mb-8">
+          <div className="text-foreground flex flex-col items-center gap-2 mt-6 mb-8">
             <p className="text-[14px] leading-4">Contact Us</p>
 
             <div className="flex gap-1">

@@ -4,6 +4,7 @@ import { routing } from "@/features/i18n/routing";
 import { notFound } from "next/navigation";
 import Header from "@/common/components/primitives/Header";
 import Footer from "@/common/components/primitives/Footer";
+import { ThemeProvider } from "next-themes";
 
 export default async function LocaleLayout({
   children,
@@ -31,11 +32,13 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main>{children}</main>
-        {/* <Footer /> */}
-      </div>
+      <ThemeProvider defaultTheme="system" attribute="class" enableSystem>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main>{children}</main>
+          {/* <Footer /> */}
+        </div>
+      </ThemeProvider>
     </NextIntlClientProvider>
   );
 }

@@ -39,7 +39,7 @@ const GraduatesGallery = () => {
     <section
       id="graduates-gallery"
       aria-labelledby="graduates-gallery-title"
-      className="overflow-hidden bg-[#0F1114] px-4 py-14 text-white md:py-18 lg:py-20"
+      className="overflow-hidden bg-background px-4 py-14 text-white md:py-18 lg:py-20"
     >
       <svg width="0" height="0" className="absolute" aria-hidden="true">
         <defs>
@@ -101,9 +101,10 @@ const GraduatesGallery = () => {
                 alt=""
                 width={16}
                 height={33}
+                className="invert dark:invert-0"
               />
             </button>
-            <span aria-live="polite" className="text-[25px]">
+            <span aria-live="polite" className="text-[25px] text-foreground">
               {activeYear}
             </span>
             <button
@@ -117,7 +118,7 @@ const GraduatesGallery = () => {
                 alt=""
                 width={16}
                 height={33}
-                className="rotate-180"
+                className="rotate-180 invert dark:invert-0"
               />
             </button>
           </div>
@@ -163,22 +164,25 @@ const GraduatesGallery = () => {
                 viewBox="0 0 153 45"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="text-black dark:text-white"
               >
                 <path
                   d="M151.869 43.7513L133.858 26.578H21.2865L6.14062 8.58691"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2"
                 />
-                <path d="M43.8008 32.3018H116.256" stroke="white" />
+                <path d="M43.8008 32.3018H116.256" stroke="currentColor" />
                 <path
                   d="M4.50293 1C6.43841 1.00005 8.00581 2.56713 8.00586 4.49805C8.00586 6.429 6.43844 7.99604 4.50293 7.99609C2.56738 7.99609 1 6.42903 1 4.49805C1.00005 2.5671 2.56741 1 4.50293 1Z"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2"
                 />
               </svg>
 
               <span className="absolute top-[-5px] left-1/2 -translate-x-1/2">
-                <span className="whitespace-nowrap">იხილე ყველა</span>
+                <span className="whitespace-nowrap text-foreground">
+                  იხილე ყველა
+                </span>
               </span>
             </div>
           </Link>
