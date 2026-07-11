@@ -11,7 +11,7 @@ import EclipseRed from "../src/assets/icons/statisticIcons/EclipseRed.svg";
 export const statisticsData: StatisticsProps[] = [
   {
     id: 1,
-    title: "Received",
+    titleKey: "received",
     count: 200,
     icon: RightArrowLetter,
     width: 70,
@@ -27,7 +27,7 @@ export const statisticsData: StatisticsProps[] = [
 
   {
     id: 2,
-    title: "Pending",
+    titleKey: "pending",
     count: 200,
     icon: ClockLetter,
     width: 70,
@@ -41,7 +41,7 @@ export const statisticsData: StatisticsProps[] = [
   },
   {
     id: 3,
-    title: "Sent",
+    titleKey: "sent",
     count: 0,
     icon: arrowDownLetter,
     width: 70,

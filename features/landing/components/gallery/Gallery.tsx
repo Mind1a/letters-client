@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { Link } from "@/features/i18n/routing";
 import { galleryImagesByYear } from "./data/galleryData";
+import { useTranslations } from "next-intl";
 
 const galleryYears = Object.keys(galleryImagesByYear)
   .map(Number)
@@ -12,6 +13,7 @@ const galleryYears = Object.keys(galleryImagesByYear)
 const carouselDuration = 22;
 
 const GraduatesGallery = () => {
+  const t = useTranslations("gallery");
   const [activeYearIndex, setActiveYearIndex] = useState(0);
 
   const activeYear = galleryYears[activeYearIndex] ?? galleryYears[0];
@@ -60,7 +62,7 @@ const GraduatesGallery = () => {
       <div className="mx-auto flex w-full max-w-[1120px] flex-col items-center">
         <div className="relative h-[74px] w-[260px] md:h-[88px] md:w-[340px]">
           <h2 id="graduates-gallery-title" className="sr-only">
-            გალერეა
+            {t("title")}
           </h2>
           <svg
             className="absolute inset-x-0 top-0 h-full w-full overflow-visible"
@@ -85,7 +87,7 @@ const GraduatesGallery = () => {
                 startOffset="50%"
                 textAnchor="middle"
               >
-                გალერეა
+                {t("title")}
               </textPath>
             </text>
           </svg>
@@ -181,7 +183,7 @@ const GraduatesGallery = () => {
 
               <span className="absolute top-[-5px] left-1/2 -translate-x-1/2">
                 <span className="whitespace-nowrap text-foreground">
-                  იხილე ყველა
+                  {t("link")}
                 </span>
               </span>
             </div>

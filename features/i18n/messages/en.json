@@ -22,7 +22,8 @@
   },
 
   "aboutUs": {
-    "title": "About Us"
+    "title": "About Us",
+    "body": "Imagine sending a parcel through time to yourself—this is exactly what the joint project between Iliauni and Unilab's Cyber-Ship makes possible. Since 2025, it has already united the emotions of hundreds of students. Freshmen \"lock away\" their hopes until graduation, while graduates launch 5-year messages into the future. Our platform ensures this digital nostalgia reaches your inbox automatically, at the exact moment promised. It’s your chance to connect with your future self and remind them of the big goals that make your eyes shine today."
   },
 
   "validation": {
@@ -53,22 +54,20 @@
     "statistics": "Statistics"
   },
   "footer": {
-    "docs": {
-      "privacy": "Privacy Policy",
-      "terms": "Terms and Conditions",
-      "cookies": "Cookie Policy",
-      "title": "Documentation"
-    },
-    "donor": {
-      "title": "Donor",
-      "content": "Funded by the Shota Rustaveli National Science Foundation"
-    },
-    "contact": {
-      "title": "Contact",
-      "location": "Tbilisi, Georgia"
-    },
-    "partners": {
-      "title": "Partners"
+    "privacyPolicy": "Privacy policy",
+    "terms": "Terms and conditions",
+    "contactUs": "Contact Us"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "link": "See More"
+  },
+  "statistics": {
+    "heading": "Statistics",
+    "items": {
+      "received": "Recieved",
+      "pending": "Pending",
+      "sent": "Sent"
     }
   }
 }

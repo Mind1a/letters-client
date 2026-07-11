@@ -2,7 +2,7 @@ import { FC, SVGProps } from "react";
 
 export type StatisticsProps = {
   id: number;
-  title: string;
+  titleKey: string;
   count: number;
   icon: FC<SVGProps<SVGSVGElement>>;
   width: number;

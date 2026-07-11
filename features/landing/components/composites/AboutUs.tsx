@@ -1,9 +1,12 @@
-const AboutUs = () => {
+import { getTranslations } from "next-intl/server";
+
+const AboutUs = async () => {
+  const t = await getTranslations("aboutUs");
   return (
     <section
       id="aboutUs"
       aria-labelledby="about-us"
-      className="mx-[16px] my-[48px] md:mx-[119px] md:my-[56px] lg:mx-[242px] lg:my-[80px] flex justify-center items-center"
+      className="mx-[16px] mt-[48px] md:mx-[119px] md:mt-[56px] lg:mx-[242px] lg:mt-[80px] flex justify-center items-center"
     >
       <div className="max-w-[956px] w-full">
         {/* top line */}
@@ -20,18 +23,10 @@ const AboutUs = () => {
             id="about-us"
             className="text-[#2BCAFF] mb-[32px] text-center text-[24px] lg:text-[32px]"
           >
-            ჩვენ შესახებ
+            {t("title")}
           </h2>
           <p className="text-[12px] lg:text-[18px] leading-[20px] lg:leading-[27px]">
-            წარმოიდგინე, რომ შეგიძლია საკუთარ თავს დროში ამანათი გაუგზავნო —
-            ზუსტად ამას აკეთებს ილიაუნისა და უნილაბის კიბერხომალდის ერთობლივი
-            პროექტი, რომელმაც 2025 წლიდან უკვე ასეულობით სტუდენტის ემოცია
-            გააერთიანა. პირველკურსელები თავიანთ იმედებს გამოსაშვებ საღამომდე
-            „აარქივებენ“, კურსდამთავრებულები კი 5-წლიან გზავნილს მომავალში
-            უშვებენ; ჩვენი პლატფორმა კი ზრუნავს, რომ ეს ციფრული ნოსტალგია
-            ავტომატურად, დათქმულ დროსა და წამს მივიდეს ადრესატის ელ-ფოსტაზე. ეს
-            არის შანსი, დაუკავშირდე შენს მომავალ ვერსიას და შეახსენო მას ის
-            მთავარი მიზნები, რომლებითაც დღეს თვალები გიბრწყინავს.
+            {t("body")}
           </p>
         </div>
 

@@ -51,6 +51,7 @@ export default function LocaleSwitcherSelect({ defaultValue, label }: Props) {
         { pathname, query: params as Record<string, string> },
         { locale: locale as Locale },
       );
+      router.refresh();
     }, 150);
   }
 

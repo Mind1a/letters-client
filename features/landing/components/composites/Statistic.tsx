@@ -1,14 +1,16 @@
 import { statisticsData } from "@/features/data/statisticData";
 import AnimatedCounter from "../primitives/AnimatedCounter";
+import { useTranslations } from "next-intl";
 
 const Statistic = () => {
+  const t = useTranslations("statistics");
   return (
     <div
-      className="bg-background text-foreground  min-h-dvh flex justify-center items-center 
+      className="bg-background text-foreground lg:mb-25 mb-15 flex justify-center items-center 
       "
     >
       <div className="text-center">
-        <h2 className="text-3xl text-[#2BCAFF] mt-10">Statistics</h2>
+        <h2 className="text-3xl text-[#2BCAFF] mt-10">{t("heading")}</h2>
 
         <div className="md:max-w-190 md:min-h-66.5 max-w-43 min-h-196.5 flex flex-col  md:flex-row md:gap-25.75 justify-center items-center gap-12  mt-14 md:mt-16">
           {statisticsData.map((data) => (
@@ -27,7 +29,7 @@ const Statistic = () => {
                 <data.item className={data.itemClass} />
               </div>
               <div className="mt-6 space-y-2">
-                <p className="text-[24px]">{data.title}</p>
+                <p className="text-[24px]">{t(`items.${data.titleKey}`)}</p>
 
                 <AnimatedCounter value={data.count} />
               </div>

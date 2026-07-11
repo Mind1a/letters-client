@@ -6,11 +6,13 @@ import Tiktok from "/public/images/footer/TiktokLogo.svg";
 import Fb from "/public/images/footer/FbLogo.svg";
 import Ig from "/public/images/footer/IgLogo.svg";
 import YouTube from "/public/images/footer/YouTubeLogo.svg";
-
+import EmailIcon from "/public/images/footer/Email.svg";
 import Iliauni from "/public/images/footer/IliauniLogo.svg";
 import Unilab from "/public/images/footer/UnilabLogo.svg";
+import { getTranslations } from "next-intl/server";
 
-const Footer = () => {
+const Footer = async () => {
+  const t = await getTranslations("footer");
   return (
     <footer className="w-full bg-background flex justify-center 2xl:p-[24px_144px] xl:p-[20px_144px_10px] lg:p-[20px_144px_10px] p-0">
       <div className="lg:flex hidden flex-col max-w-480 w-full 2xl:gap-2 gap-7.5">
@@ -24,8 +26,8 @@ const Footer = () => {
             />
           </Link>
           <nav className="text-foreground text-[12px] leading-6 flex flex-col items-center gap-0.5">
-            <Link href="#">კონფიდენციალურობის პოლიტიკა</Link>
-            <Link href="#">წესები და პირობები</Link>
+            <Link href="#">{t("privacyPolicy")}</Link>
+            <Link href="#">{t("terms")}</Link>
           </nav>
           <div className="flex flex-col gap-1 items-center justify-center">
             <div className="flex gap-4">
@@ -46,7 +48,7 @@ const Footer = () => {
                 aria-label="Tiktok"
                 className="flex items-center justify-center"
               >
-                <Tiktok />
+                <Tiktok className="text-[#333333] dark:text-[#FFFFFF]" />
               </a>
 
               <a
@@ -56,7 +58,7 @@ const Footer = () => {
                 aria-label="Facebook"
                 className="flex items-center justify-center"
               >
-                <Fb />
+                <Fb className="text-[#333333] dark:text-[#FFFFFF]" />
               </a>
 
               <a
@@ -66,7 +68,7 @@ const Footer = () => {
                 aria-label="Instagram"
                 className="flex items-center justify-center"
               >
-                <Ig />
+                <Ig className="text-[#333333] dark:text-[#FFFFFF]" />
               </a>
 
               <a
@@ -76,7 +78,7 @@ const Footer = () => {
                 aria-label="YouTube"
                 className="flex items-center justify-center"
               >
-                <YouTube />
+                <YouTube className="text-[#333333] dark:text-[#FFFFFF]" />
               </a>
             </div>
             <a
@@ -94,7 +96,7 @@ const Footer = () => {
               aria-label="Ilia State University"
               className="flex items-center justify-center"
             >
-              <Iliauni />
+              <Iliauni className="text-[#333333] dark:text-[#FFFFFF]" />
             </a>
 
             <a
@@ -104,7 +106,7 @@ const Footer = () => {
               aria-label="UniLab"
               className="flex items-center justify-center"
             >
-              <Unilab />
+              <Unilab className="text-[#333333] dark:text-[#FFFFFF]" />
             </a>
           </div>
         </div>
@@ -114,7 +116,7 @@ const Footer = () => {
       </div>
 
       <div className="flex lg:hidden flex-col w-full">
-        <div className="bg-[#121212] p-[32px_16px_0px]">
+        <div className="bg-background p-[32px_16px_0px]">
           <div className="flex justify-between items-center">
             <Link href="/" aria-label="Go to homepage">
               <Image
@@ -156,17 +158,16 @@ const Footer = () => {
           </div>
 
           <nav className="mt-12 text-foreground text-[12px] leading-4 flex flex-col items-center gap-3">
-            <Link href="#">კონფიდენციალურობის პოლიტიკა</Link>
-            <Link href="#">წესები და პირობები</Link>
+            <Link href="#">{t("privacyPolicy")}</Link>
+            <Link href="#">{t("terms")}</Link>
           </nav>
 
           <div className="text-foreground flex flex-col items-center gap-2 mt-6 mb-8">
-            <p className="text-[14px] leading-4">Contact Us</p>
+            <p className="text-[14px] leading-4">{t("contactUs")}</p>
 
             <div className="flex gap-1">
-              <Image
-                alt="Logo"
-                src="/images/footer/Email.svg"
+              <EmailIcon
+                className="text-[#333333] dark:text-[#FFFFFF]"
                 width={24}
                 height={12.93}
               />

@@ -12,15 +12,24 @@ const Navbar = () => {
   const pathname = usePathname();
   return (
     <div className="bg-background border border-b border-[#0A0A0A] min-w-full h-23.5">
-      <div className="w-full  max-w-6xl mx-auto h-full">
+      <div className="w-full  max-w-6xl mx-auto h-full px-4">
         <div className="w-full flex justify-between items-center h-full">
+          <Link href={"/"}>
+            <Image
+              src="/images/header/unilab.svg"
+              alt="Unilab Logo"
+              width={92}
+              height={62}
+            />
+          </Link>
           <Image
-            src="/images/header/unilab.svg"
-            alt="Unilab Logo"
-            width={92}
-            height={62}
+            src="/images/header/burger.svg"
+            alt="Burger Menu Logo"
+            width={30}
+            height={20}
+            className="block lg:hidden"
           />
-          <nav className="max-w-[547px] w-full flex justify-between items-center">
+          <nav className="max-w-[547px] w-full hidden lg:flex justify-between items-center">
             {navItems.map((item) => (
               <Link
                 key={item.id}
@@ -35,7 +44,7 @@ const Navbar = () => {
               </Link>
             ))}
           </nav>
-          <div className="max-w-[155px] w-full flex items-center gap-10 pl-4">
+          <div className="max-w-[155px] w-full hidden lg:flex items-center gap-10 pl-4">
             <LocaleSwitcher />
             <ThemeSwitcher />
           </div>
